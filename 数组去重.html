@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function quchong(a){
+        //     var len = a.length;
+        //     for(var i = 0 ; i < len ; i ++){
+        //         for( var j = i + 1 ; j < len ; j ++) {
+        //             if( a[i] == a [j]){
+        //                 a.splice( j , 1);
+        //                 len -- ;
+        //                 j -- ;
+        //             }
+        //         } 
+        //     }
+        //     return a;
+        // }
+        // var a = [1,2,3,1,5,2,0,1,2,0];
+        // console.log(quchong(a));
+
+
+
+
+        function quchong2(a){
+            var arr = [];
+            a.forEach(item => {
+                if (arr.indexOf(item) === -1){
+                    arr.push(item);
+                }
+            }
+            )
+            return arr;
+        }
+        var a = [1,0,2,3,2,1,0];
+        console.log(quchong2(a));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
