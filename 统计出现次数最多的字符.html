@@ -28,6 +28,31 @@
         }
         console.log(max);
         console.log('出现最多的字符是：' + ch);
+        
+        
+        
+        
+         var str1 = 'asdfgrfdgsdftr';
+        var a = {};
+        for(var i = 0 ; i < str1.length ; i ++){
+            var chars = str1.charAt(i);
+            if (a[chars]){
+                a[chars] ++ ;
+            } else{
+                a[chars] = 1;
+            }
+        }
+        console.log(a);
+        var max = a[str1.charAt(1)];
+        var ch = '';
+        for(var k in a){
+            if (a[k] > max){
+                max = a[k];
+                ch = k;
+            }
+        }
+        console.log(max);
+        console.log('出现最多的字符是：' + ch);
     </script>
 </head>
 
