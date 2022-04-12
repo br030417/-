@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id = 'time'> 2022 - 4 - 12 </div>
+    <script>
+        //1.因为文档页面从上往下加载，所以先得有标签， 所以我们script写到标签的下面。
+        //2.get 获得 element 元素 by 通过   驼峰命名法
+        //3. 参数id 是大小写敏感的字符串。
+        //4.返回的是一个元素对象。
+        var timer = document.getElementById('time');
+        console.log(timer);
+        console.log(typeof timer);   //object
+        //5. console.dir 打印我们返回的元素对象，更好地查看里面的属性和方法。
+        console.dir(timer);
+    </script>
+    
+    
+    
+    
+    
+    
+    <ol id = 'ol1'>
+        <li>试问卷帘人却道海棠依旧</li>
+        <li>试问卷帘人却道海棠依旧</li>
+        <li>试问卷帘人却道海棠依旧</li>
+    </ol>
+    <ul>
+        <li>昨夜雨疏风骤，浓睡不消残酒</li>
+        <li>昨夜雨疏风骤，浓睡不消残酒</li>
+        <li>昨夜雨疏风骤，浓睡不消残酒</li>
+        <li>昨夜雨疏风骤，浓睡不消残酒</li>
+        <li>昨夜雨疏风骤，浓睡不消残酒</li>
+    </ul>
+    <script>
+        //1.返回的是 获取过来的元素对象的集合 以伪数组的形式存储
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);
+        console.log(lis[0]);
+        for(var i = 0 ; i < lis.length ; i ++ ){
+            console.log(lis[i]);
+        }
+        //2.如果页面中只有一个li ， 返回的仍然是伪数组的形式 [li]
+        //3.如果页面中没有这个元素，则返回的是空的伪数组的形式 []
+        //4.element.getElementsByTagName('标签名');
+        //    注意： 父元素必须是单个对象（必须指明是哪一个元素对象） ， 获取的时候不包括父元素自己。
+        var ol = document.getElementById('ol1');
+        var lis1 = ol.getElementsByTagName('li');
+        console.log(lis1);
+    </script>
+
+
+
+
+
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">
+        <ul id = okk>
+            <li>啊哈</li>
+            <li>嗯哼</li>
+        </ul>
+    </div>
+    <script>
+        //1.getElementsByClassName 根据类名获得某些元素集合;
+        var boxs = document.getElementsByClassName('box');
+        console.log(boxs);
+        //2. querySelector 返回指定选择器的第一个元素对象 切记 里面的选择器要加符号  .box #okk
+        var firstbox = document.querySelector('.box');
+        console.log(firstbox);
+        var okk = document.querySelector('#okk');
+        console.log(okk);
+        var li = document.querySelector('li');
+        console.log(li);
+        //3.querySelectorAll() 返回指定选择器的所有元素对象集合
+        var allbox = document.querySelectorAll('.box');
+        console.log(allbox);
+        var lis = document.querySelectorAll('li');
+        console.log(lis);
+    </script>
+
+
+
+    <script>
+        // 1.获取body元素
+        var bodyEle = document.body;
+        console.log(bodyEle);
+        console.dir(bodyEle);
+
+        //2.获取html元素
+        var htmlEle = document.documentElement;
+        console.log(htmlEle);
+
+    </script>
+</body>
+
+</html>
