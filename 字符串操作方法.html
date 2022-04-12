@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       // 1. concat(str1 , str2 , str3 ...); 等效于+;
+       var a = 'asd';
+       var b = 'sdf';
+       console.log(a.concat(b));
+       console.log(a.concat(b).concat('wow').concat('heyheyhey'));
+       // substr('截取的起始位置' , '截取几个字符')
+       var str2 = 'asdffghh';
+       console.log(str2.substr(2,2));
+       //replace(''被替换的字符','替换为的字符')  只替换第一个
+       var str3 = 'wertye';
+       console.log(str3.replace('e' , 'a'));
+       //要求把所有的o全部替换为y
+       var str4 = 'oolloodolofg';
+       while(str4.indexOf('o') !== -1){
+           str4 = str4.replace('o' , 'y');
+       }
+       console.log(str4);
+       //分隔符 split      字符转换为数组   join把数组转换为字符串
+       var str5 = 'asff, sdf , sdfg';
+       console.log(str5.split(','));
+       var str6 = 'asdf $ asdf$ dfg$ ghj';
+       console.log(str6.split('$'));
+       var arr1 = ['asd' , 'sdf' , 'sdfg'];
+       console.log(arr1.join('$'));
+       //转换大写
+       var str7 = 'asdf';
+       console.log(str7.toUpperCase());
+       var str8 = 'asdAsaASD';
+       console.log(str8.toUpperCase());
+       console.log(str8.toLowerCase());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
