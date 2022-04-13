@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="css小练习/images/云娜.jpg" alt="">
+    <img src="css小练习/images/佛爷全身.png" alt="">
+    <img src="css小练习/images/上午.jpg" alt="">
+    <div>上午好</div>
+    <script>
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+        var date = new Date();
+        var h = date.getHours();
+        if(h < 12){
+            img.src = 'css小练习/images/上午.jpg';
+            div.innerHTML = '上午好哦亲亲';
+        } else if( h = 12 ){
+            img.src = 'css小练习/iamges/中午.jpg';
+            div.innerHTML = '中午好哦亲亲';
+        } else if(h < 18){
+            img.src = 'css小练习/images/下午.webp';
+            div.innerHTML = '下午好哦亲亲';
+        } else {
+            img.src = 'css小练习/images/晚上.jpg';
+            div.innerHTML = '晚上好哦亲亲';
+        }
+    </script>
+</body>
+
+</html>
