@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='btn'> 徐湘雨 </button>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            alert('喜欢尚九熙');
+        }
+    </script>
+    <div class='one'>13332</div>
+    <style>
+        div.one:hover {
+            cursor: pointer;
+            width: 50px;
+            height: 20px;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        var dix = document.querySelector('div');
+        dix.onclick = function () {
+            alert('我被选中了');
+        }
+    </script>
+
+    <button id='btn1'>
+        显示当前系统时间
+    </button>
+    <div class='two'>某个时间</div>
+    <script>
+        //当我们点击了按钮，div里面的文字会发生变化
+        // 1.获取元素
+        var btn = document.querySelector('#btn1');
+        var div1 = document.querySelector('div.two');
+        // 2.注册事件
+        btn.onclick = function () {
+            var date = new Date();
+            div1.innerText = getDate();
+        }
+        function getDate() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var dates = date.getDate();
+            var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var day = date.getDay();
+            return ('今天是：' + year + '年' + month + '月' + dates + '日' + arr[day]);
+
+        }
+    </script>
+
+
+    <p></p>
+    <script>
+        var p = document.querySelector('p');
+        p.innerText = getDate();
+    </script>
+
+
+    <div class='three'></div>
+    <script>
+        // 1.innerText 不识别 html 标签  非标准  
+        var div3 = document.querySelector('.three');
+        div3.innerText = '<strong>今天</strong>是2022-4-13';
+    </script>
+
+
+    <div class="four"></div>
+    <script>
+        // 2.innerHTML识别html标签   标准   
+        var div4 = document.querySelector('.four')
+        div4.innerHTML = '<strong>今天</strong>是2022-4-13';
+
+    </script>
+
+
+    <p class = 'five'>
+        我是文字
+        <span>213464</span>
+    </p>
+    <script>
+        //1.element.innerText  
+        //从起始位置到终止位置的内容 ，但他去除html标签 ， 同时空格和换行也会换掉
+        // 2.element.innerHTML
+        //起始位置到终止位置的全部内容 ， 包括HTML标签 ， 同时保留空格和换行
+        var p = document.querySelector('.five');
+        console.log(p.innerText);
+        console.log(p.innerHTML);
+    </script>
+
+
+
+
+    <button id = 'fashion9c'>
+        尚九熙
+    </button>
+    <button id = 'au'>
+        金世佳
+    </button>
+    <img src="css小练习/images/尚九熙.png" alt="" title = '尚九熙'>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        var c = document.getElementById('fashion9c');
+        var a = document.getElementById('au');
+        var img = document.querySelector('img');
+        a.onclick = function(){
+            img.src = 'css小练习/images/金世佳.png';
+            img.title = '金世佳'
+        }
+        c.onclick = function(){
+            img.src = 'css小练习/images/尚九熙.png';
+            img.title = '尚九熙';
+        }
+    </script>
+
+</body>
+
+</html>
