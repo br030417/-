@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="仿京东显示隐藏密码明文.css">
+</head>
+
+<body>
+    <div class="big">
+        <h6>京东登录</h6>
+        <div class="name">
+            <input type="text" placeholder="用户名">
+        </div>
+        <div class="pass">
+            <div class="password">
+                <input type="password" placeholder="密码" name="" id="pwd">
+            </div>
+            <div class="iconfont" id='eye'>&#xe901;</div>
+            <script>
+                var eye = document.getElementById('eye');
+                var pwd = document.getElementById('pwd');
+                var flag = 0;
+                eye.onclick = function(){
+                    if(flag == 0){
+                        pwd.type = 'text';
+                        eye.innerHTML = '&#xe8c7;';
+                        flag = 1;
+                    } else{
+                        pwd.type = 'password';
+                        flag = 0;
+                        eye.innerHTML = '&#xe901;';
+                    }
+                }
+            </script>
+            <div class="forget">
+                忘记密码
+            </div>
+        </div>
+        <div class="delu">登录</div>
+        <div class="footer">
+            <a href="" class="left">短信验证码登录</a>
+            <a href="" class="right">手机快速注册</a>
+        </div>
+        <div class="other">
+            <div class="qita">其他登录方式</div>
+            <div class="qq">
+                <div class="iconfont">&#xe882;</div>
+                <h6>QQ</h6>
+            </div>
+            <div class="tip">
+                登录即代表您已同意<a href="">京东隐私政策</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
