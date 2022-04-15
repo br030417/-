@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .box{
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            margin-top: -200px;
+            left: 50%;
+            margin-left: -200px;
+            display: block;
+        }
+        .box img{
+            width: 100%;
+            height: 100%;
+        }
+        .box .close-btn{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 0;
+            left: -20px;
+            font-size: 20px;
+            border: 1px solid black;text-align: center;
+            line-height: 20px;
+        }
+        .box .close-btn:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        var flag = 1;
+        div.onclick = function () {
+            // element.style   行内样式操作
+            // div.style 里面的属性采取驼峰命名法
+            // JS 修改 style 样式操作 ，产生的是行内样式  ， css权重比较高；
+            if (flag == 1) {
+                this.style.backgroundColor = 'purple';
+                this.style.width = '300px';
+                flag = 0;
+            } else {
+                this.style.width = '200px';
+                this.style.backgroundColor = 'red';
+                flag = 1;
+            }
+        }
+    </script>
+
+    <!-- 仿淘宝关闭二维码案例（关闭尚九熙图片） -->
+    <div class="box">
+        <img src="css小练习/images/尚九熙.png" alt="">
+        <i class = 'close-btn'> x </i>
+    </div>
+    <script>
+        var btn = document.querySelector('.close-btn');
+        var box = document.querySelector('.box');
+        btn.onclick = function(){
+            box.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
