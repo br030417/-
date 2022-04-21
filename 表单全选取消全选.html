@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        table{
+            margin: 200px auto;
+            font-family:"微软雅黑";
+            width: 300px;
+            color: rgb(58,58,58);
+            border-right: 1px solid rgb(180,180,180);
+            border-bottom: 1px solid rgb(180,180,180);
+        }
+        thead td , thead th{
+            font-size: 13px ;
+            height: 30px;
+            color: white;
+            border-left: 1px solid white;
+            border-top: 1px solid white;
+            background-color: rgb(0,139,204);
+            text-align: center;
+        }
+        tbody td{
+            height: 30px;
+            font-size: 13px;
+            border-left: 1px solid rgba(180,180,180);
+            border-top: 1px solid rgb(180,180,180);
+            /* padding-left: 10px; */
+            background-color: rgb(251,251,251);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing = '0' ; cellpadding = '0'>
+        <thead>
+            <tr>
+                <td class="gouxuan"><input type="checkbox" id = j_tball></td>
+                <th>商品</th>
+                <th>价钱</th>
+            </tr>
+        </thead>
+        <tbody class = 'message' id = 'j_tb'>
+            <tr>
+                <td class = 'gouxuan'><input type="checkbox"></td>
+                <td>IPhone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td class = 'gouxuan'><input type="checkbox"></td>
+                <td>IPhone7</td>
+                <td>7000</td>
+            </tr>
+            <tr>
+                <td class = 'gouxuan'><input type="checkbox"></td>
+                <td>IPad Pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td class="gouxuan"><input type="checkbox"></td>
+                <td>Apple Watch</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var j_tball = document.getElementById('j_tball');
+        j_tbs = document.getElementById("j_tb").getElementsByTagName('input');
+        j_tball.onclick = function(){
+            for(var i = 0 ; i < j_tbs.length ; i ++){
+                j_tbs[i].checked = this.checked;
+            }
+        }
+        // 全选完成
+        for(var i = 0 ; i < j_tbs.length ; i ++){
+            j_tbs[i].onclick = function(){
+                var flag = true;//控制全选按钮是否被选中
+                for( var i = 0 ; i < j_tbs.length ; i ++){
+                    if(!j_tbs[i].checked){
+                        flag = false;
+                        break;
+                    }
+                }
+                j_tball.checked = flag;
+            }
+        }
+    </script>
+</body>
+</html>
