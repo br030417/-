@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="开关灯.css">
+</head>
+
+<body>
+    <div class="light">
+        <div class="shubig"></div>
+        <div class="heng"></div>
+        <div class="shu"></div>
+        <div class="triangle"></div>
+        <div class="circle">
+            <div class="undercircle">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var circle = document.querySelector('.circle');
+        var circlen = document.querySelector('.undercircle');
+        var flag = 1;
+        circle.onclick = function () {
+            if (flag == 1) {
+                circle.style.backgroundColor = 'yellow';
+                circlen.style.display = 'none';
+                circle.style.boxShadow = '0px 20px 20px 20px rgb(237,237,137)';
+                flag = 0;
+            } else {
+                circle.style.backgroundColor = 'rgba(255,255,255,.5)';
+                circlen.style.display = 'block';
+                circle.style.boxShadow = 'none';
+                flag = 1;
+            }
+        }
+    </script>
+</body>
+
+</html>

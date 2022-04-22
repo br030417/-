@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(-200deg , rgb(4, 0, 8) , rgb(1, 1, 85));
+    overflow: hidden;
+}
+.light{
+    /* background-color: pink; */
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+.shubig{
+    position: absolute;
+    width: 5px;
+    height: 600px;
+    background:linear-gradient(180deg ,black, white , black );
+    right: 0;
+    top: 10px;
+}
+.heng{
+    width: 200px;
+    height: 5px;
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    background:linear-gradient(90deg, black, white, black);
+}
+.shu{
+    position: absolute;
+    width: 5px;
+    height: 90px;
+    background:linear-gradient(180deg, black, white, black);
+    left: 50%;
+    top: 10px;
+}
+.triangle{
+    /* background:linear-gradient(180deg, gray, rgb(49, 40, 40)); */
+    width: 100px;
+    height: 100px;
+    border: 100px solid #000;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color:rgb(69, 67, 67);
+    position: absolute;
+    left: 102px;
+    top: -6px;
+    z-index:2;
+}
+.circle{
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255,255,255,.5);
+    border-radius: 50%;
+    top: 168px;
+    left: 162px;
+    position: absolute;
+    z-index: 1;
+}
+.undercircle{
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    position: absolute;
+}
+.circle .circle1{
+    width: 12px;
+    height: 12px;
+    background-color: rgb(221, 217, 217);
+    position: absolute;
+    top: 35px;
+    left: 64px;
+    border-radius: 50%;
+}
+.circle .circle2 {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(221, 217, 217);
+    position: absolute;
+    top: 53px;
+    left: 59px;
+    border-radius: 50%;
+}
+.circle .circle3 {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(221, 217, 217);
+    position: absolute;
+    top: 64px;
+    left: 50px;
+    border-radius: 50%;
+}
+.circle .circle4 {
+    width: 6px;
+    height: 6px;
+    background-color: rgb(221, 217, 217);
+    position: absolute;
+    top: 71px;
+    left: 36px;
+    border-radius: 50%;
+}
