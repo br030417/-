@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <!-- 1.利用DOM提供的犯法获取元素 -->
+              <!-- 逻辑性不强，繁琐 -->
+      <!-- 2.利用节点层级关系获取元素 -->
+              <!-- 利用父子兄弟节点关系获取元素 -->
+              <!-- 逻辑性强 ， 但是兼容性特别差 -->
+              <!-- 网页中的所有内容都是节点（标签、属性、文本、注释等），在DOM中，节点用node来表示 -->
+              <!-- 在开发中，主要操作的是元素节点 -->
+              <!-- 一般，节点至少拥有nodeType(节点类型) , nodeName(节点名称) , nodeValue(节点值) 这三个基本属性 -->
+
+
+    <!-- 父子节点 -->
+    <div>我是div</div>
+    <span>我是span</span>    
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>  
+    <div class="demo">
+        <div class="box">
+            <span class="erweima">x</span>
+        </div>
+    </div> 
+    <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ol>
+    <script>
+
+                                         //父子节点
+        //注意： 元素节点 nodeType 为 1
+        //  属性节点 nodeType为 2
+        //  文本节点 nodeType为 3  （文本节点包含文字、 空格、换行等）
+        var erweima = document.querySelector('.erweima');
+        // var box = document.querySelector('.box');
+        // console.log(box);
+        console.log(erweima.parentNode); //得到的是离元素最近的父亲 ,如果找不到父节点就返回为空Null
+        console.log(erweima.parentNode.parentNode); 
+
+
+        var ul = document.querySelector('ul');
+        // var lis = ul.querySelectorAll('li');
+        // console.log(lis);
+        console.log(ul.childNodes); //里面的换行成为了 text
+        console.log(ul.childNodes[0].nodeType);
+        console.log(ul.childNodes[1].nodeType);
+        // 如果只想获取其中的元素节点 需要专门处理 ，因此一般不提倡使用 childNodes
+        for(var i = 0 ; i < ul.childNodes.length ; i ++){
+            if(ul.childNodes[i].nodeType == 1){
+                console.log(ul.childNodes[i]);
+            }
+        }
+        //children
+        console.log(ul.children);  //直接获得所有的字元素节点  ， 也是我们实际开发常用的
+        var ol = document.querySelector('ol');
+
+        //firstChild 返回的是第一个子节点 ，不管是文本节点还是元素节点。
+        console.log(ol.firstChild);
+        console.log(ol.firstElementChild);
+        console.log(ol.lastElementChild); //ie9以上才能用
+        // 3.实际开发中用
+        console.log(ol.children[0]);
+        console.log(ol.children[3]);
+        console.log(ol.children[ol.children.length-1]);
+    </script> 
+    
+    
+</body>
+</html>
