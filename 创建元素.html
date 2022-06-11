@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>ok</button>
+    <p>asdsaf</p>
+    <div class="inner"></div>
+    <div class="create"></div>
+    <script>
+        //1.documtn.write() 创建元素 如果页面文档流加载完毕  再调用这句话会导致页面重绘 ，即原来的东西不见了
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            document.write('<div>123</div>');
+        }
+        // 2.innerHTML 创建元素  将内容写入某个DOM 节点 ， 不会导致页面全部重绘
+        var inner = document.querySelector('.inner');
+        inner.innerHTML = ' <a href = "#">百度</a>';
+        // 3. document.createElement() 创建元素
+        var create = document.querySelector('.create');
+        var a = document.createElement('a');
+        create.appendChild(a);   //创建多个元素时的效率比innerHTML快很多 
+
+
+        //测速
+        function fn() {
+            var d1 = +new Date();
+            var str = '';
+            for (var i = 0; i < 1000; i++) {
+                document.body.innerHTML += '<div style = "width:100px; height: 2px ; border: 1px solid blue"></div>';
+            }
+            var d2 = +new Date();
+            console.log(d2 - d1);
+        }
+        fn();  //889s 
+        function fn1() {
+            var d3 = + new Date();
+            var array = [];
+            for (var i = 0; i < 1000; i++) {
+                array.push('<div style = " width : 100px ; border: 1px solid red ;"></div>');
+            }
+            document.body.innerHTML = array.join('');
+            var d4 = +new Date();
+            console.log(d4 - d3);
+        }
+        fn1();   // 1s
+        // innerHTML 创建多个元素效率更高（不要拼接字符串 ， 采取数组形式拼接） ， 结构稍微复杂；
+        // createElement() 创建多个元素效率稍微低一点点， 但是结构更清晰。
+    </script>
+</body>
+
+</html>
