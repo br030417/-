@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <button>ie9 attachEvent</button>
+    <script>
+        // 1. 传统方法注册事件
+        var btns = document.querySelectorAll('button');
+        btns[0].onclick = function(){
+            alert('hi');
+        } 
+        btns[0].onclick = function(){
+            alert('hao are u ');
+        }  // 只显示这个效果 这种方法具有 唯一性
+        
+        // 2. 事件监听注册事件     里面的事件类型是字符串 ， 必定加引号 ，而且不带 on
+        //  同一个事件 ，同一个元素 ，可以添加多个监听器（事件处理程序）
+        btns[1].addEventListener('click' , function(){
+            alert('22');
+        })
+        btns[1].addEventListener('click' , function(){
+            alert('33');
+        })  // 先显示22 ， 再显示 33；
+        
+        // ie9 支持的 attachEvent方法
+        btns[2].attachEvent('onclick' , function(){
+            alert('hi!');   //ie9以前才有效果  谷歌都不支持   一般开发中都不会使用
+        })
+    </script>
+</body>
+</html>
