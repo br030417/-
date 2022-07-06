@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- cloneNode()可以克隆节点，克隆出的节点是“孤儿节点”； -->
+    <!-- var 孤儿节点 = 老节点.cloneNode(true); -->
+    <!-- 参数是一个布尔值，表是否采用深度克隆： -->
+    <!-- 如果为true，则该节点的所有后代节点都要被克隆 -->
+    <!-- 如果为false，则只克隆该节点本身。 -->
+    <div id="box1">
+        <ul>
+            <li>牛奶</li>
+            <li>咖啡</li>
+            <li>可乐</li>
+        </ul>
+    </div>
+    <div id="box2"></div>
+    <script>
+        var box1 = document.getElementById('box1');
+        var box2 = document.getElementById('box2');
+        var theul = box1.getElementsByTagName('ul')[0];
+
+        var newul = theul.cloneNode();
+        box2.appendChild(newul);
+        var newul2 = theul.cloneNode(true);
+        box2.appendChild(newul2);
+
+    </script>
+</body>
+</html>
