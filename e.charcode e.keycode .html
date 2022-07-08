@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            background-color: rgb(46, 208, 181);
+        }
+    </style>
+</head>
+<body>
+    <!-- 字符                  字符码
+         0~9                   48~57
+         A~Z                   65~90
+         a~z                   97~122 
+        四个方向键（左上右下）   37 38 39 40
+        回车键                  13
+        空格键                  32 -->
+    <input type="text" id = "field">
+    <h1 id = "info"></h1>
+    <input type="text" id="field1">
+    <h1 id="info1"></h1>
+    <script>
+        var ofield = document.getElementById("field");
+        var oinfo = document.getElementById('info');
+        var ofield1 = document.getElementById("field1");
+        var oinfo1 = document.getElementById('info1');
+        ofield.onkeypress = function(e){
+            oinfo.innerText = '你输入的字符的字符码是' + e.charCode;
+        }
+        //onkeypress不能响应系统级别的，例如回车。空格键。还有方向键
+        ofield1.onkeydown = function (e) {
+                oinfo1.innerText = '你按下按键的字符码是' + e.keyCode;
+            }
+            //onkeydown可以响应的按键更多一点，可以响应系统级别的按键
+    </script>
+
+    <div id="box"></div>
+    <script>
+        var obox = document.getElementById('box');
+        //全局变量t、l分别表示盒子的top属性值和left属性值
+        var t = 200;
+        var l = 200;
+
+        //监听document对象的键盘按下事件监听，表示当用户在整个网页上按下按键的时候
+        document.onkeydown = function(e){
+            switch(e.keyCode){
+                case 37:
+                    l -= 3;
+                    break;
+                case 38: 
+                    t -= 3;
+                    break;
+                case 39: 
+                    l += 3;
+                    break;
+                case 40:
+                    t += 3;
+                    break;
+            }
+
+            //更改样式
+            obox.style.left = l + 'px';
+            obox.style.top = t + 'px';
+        }
+    </script>
+</body>
+</html>
