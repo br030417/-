@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heihei{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        body{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div>123</div>
+    <a href="http://www.baidu.com">百度</a>
+    <form action="http://www.baidu.com">
+        <input type="submit" value = "提交" name = "sub">
+    </form>
+    <script>
+        var div = document.querySelector('div');
+        div.addEventListener('mouseover', fn);
+        div.addEventListener('mouseout', fn);
+        div.addEventListener('click' , fn);
+        function fn(e){
+            console.log(e.type);
+        }
+        // 阻止默认行为（事件） 让链接不跳转  或者让提交按钮不提交
+        var a = document.querySelector('a');
+        a.addEventListener('click' , function(e){
+            e.preventDefault();
+        })
+        var form = document.querySelector('form');
+        form.addEventListener('click' , function(e){
+            e.preventDefault();
+        })
+    </script>
+
+    <!-- 制作一个文本框，只能让用户在其中输入小写字母和数字，其他字符输入没有效果 -->
+    <p>
+        <input type="text" id = "field">
+    </p>
+    <script>
+        var ofield = document.getElementById('field');
+        ofield.onkeypress = function(e){
+            //根据用户输入的字符的字符码（e.charCode）
+            //数字 0-9  字符码 48-57
+            //a-z   97-122
+            console.log(e.charCode);
+            if(!(e.charCode >= 48 && e.charCode <= 57 || e.charCode >= 97 && e.charCode <= 122)){
+                e.preventDefault();
+            }
+        }
+    </script>
+
+    <!-- 制作鼠标滚轮事件：当鼠标在盒子中向下滚动时，数字加1；反之，数字减一 -->
+    <!-- 鼠标滚轮事件是 onmousewheel，他的事件对象e提供deltaY属性表示鼠标滚动方向，向下滚动时返回正值，向上滚动时返回负值。 -->
+    <div id="heihei"></div>
+    <h1 id="info"></h1>
+
+    <script>
+        var ohei = document.getElementById('heihei');
+        var oinfo = document.getElementById('info');
+
+        //全局变量就是info中显示的数字
+        var a = 0;
+
+        //给box盒子添加鼠标滚轮事件监听
+        ohei.onmousewheel = function(e){
+            //阻止默认事件：就是说当用户在盒子里面滚动鼠标滚轮的时候，此时不会引发页面的滚动条的移动
+            e.preventDefault();
+            if(e.deltaY > 0){
+                a--;
+            }else{
+                a ++;
+            }
+            oinfo.innerText  = a;
+        }
+
+    </script>
+</body>
+</html>
