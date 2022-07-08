@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+        #modal{
+            width: 400px;
+            height: 200px;
+            background-color: rgb(241, 94, 172);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: 200px;
+            margin-top: 100px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        father
+        <div class="son">son</div>
+    </div>
+    
+    <script>
+        //阻止冒泡，就是切断传播
+        //阻止冒泡  dom推荐的标准 stopPropagation()
+        var son = document.querySelector('.son');
+        son.addEventListener('click' , function(e){
+            alert('son');
+            e.stopImmediatePropagation();
+        },false);
+        var father = document.querySelector('.father');
+        father.addEventListener('click',function(){
+            alert('father');
+        },false);
+        // document.addEventListener('click',function(){
+        //     alert('document');
+        // })
+    </script>
+
+    <button id = "btn">按我弹出弹出层</button>
+    <div id="modal" class = "modal"></div>
+
+    <script>
+        var obtn = document.getElementById('btn');
+        var omodal = document.getElementById('modal');
+
+        //点击按钮的时候，弹出层显示
+        obtn.onclick = function(e){
+            omodal.style.display = 'block';
+            e.stopImmediatePropagation();     //阻止事件继续传播。
+        }
+        //点击页面其他地方的时候，弹出层隐藏。
+        document.onclick = function(){
+            omodal.style.display = 'none';
+        }
+        //不加stop..的时候，会发现后者覆盖前者，导致弹出层不会显示。
+    </script>
+</body>
+</html>
