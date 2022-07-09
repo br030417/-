@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(91, 15, 182);
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 函数节流：一个函数执行一次后，只有大于设定的执行周期后才允许执行第二次 -->
+
+    <!-- 函数节流非常容易实现，只需要借助延时器 setTimeout() -->
+    <button id = "btn">按我运动</button>
+    <box id="box"></box>
+
+    <script>
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+
+        //标识量，只是当前在左边还是右边
+        var flag = 1;
+
+        //函数节流锁
+        var lock = true;
+
+        btn.onclick = function(){
+            //首先检查锁是否关闭
+            if(!lock){
+                return;   //即什么都不执行，直接跳过
+            }
+            //加上过渡
+            box.style.transition = 'all 2s linear 0s';
+            if(flag == 1){
+                box.style.left = '1100px';
+                flag = 2;
+            }else if(flag == 2){
+                box.style.left = '100px';
+                flag = 1;
+            }
+
+            //关锁
+            lock = false;
+
+            setTimeout(function(){
+                lock = true;
+            }, 2000);          //指定时间后才能把锁打开。这样就不能一直乱点击按钮了
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
